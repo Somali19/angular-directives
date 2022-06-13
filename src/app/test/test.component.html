@@ -1,0 +1,73 @@
+<!--Structural Directives-->
+    <!--ngIf-->
+    <h1>Structural Directives</h1>
+    <h2>ngIf</h2>
+    <p>test works!</p>
+    <div *ngIf="true">Display data</div>
+
+    <!--ngIfElse-->
+    <h2>ngIfElse</h2>
+    <div *ngIf="isLogIn; else isLogOut">
+    Hello you are logged in
+    </div>
+    <ng-template #isLogOut>
+        You're logged out..
+    </ng-template>
+
+    <!--ngFor-->
+    <h2>ngFor</h2>
+    <ul>
+    <li *ngFor="let l of list">
+    {{l}}
+    </li>
+    </ul>
+
+    <!--trackBy-->
+    <h2>trackBy</h2>
+    <ul>
+        <li *ngFor="let std of studentArr; trackBy: trackByData">
+        {{std.name}}
+        </li>
+       </ul>
+
+       <!--ngSwitch-->
+       <h2>ngSwitch</h2>
+        <ul [ngSwitch]="logInName">
+        <li *ngSwitchCase="'user'">
+        <p>User is logged in..</p>
+        </li>
+        <li *ngSwitchCase="'admin'">
+        <p>admin is logged in</p>
+        </li>
+        <li *ngSwitchDefault>
+        <p>Please choose login name</p>
+        </li>
+        </ul>
+
+        <p>------------------------------------------------------------------------------------------------</p>
+
+    <!--Attribute Directives-->
+    <h1>Attribute Directives</h1>
+        <!--ngStyle-->
+        <h2>ngStyle</h2>
+        <p [ngStyle]="{'color': 'blue', 'font-size': '14px'}">
+            paragraph style is applied using ngStyle
+           </p>
+
+        <!--ngClass-->
+        <h2>ngClass</h2>
+        <div class="container">
+            <br/>
+            <div *ngFor="let user of users" [ngClass]="{
+            'highlight':user.userName === 'User1'
+            }">
+            {{ user.userName }}
+            </div>
+           </div>
+
+           <p>------------------------------------------------------------------------------------------------</p>
+
+<!--component directives-->
+<h1>Components Directives</h1>
+    <h3>Test component</h3>
+    <app-child [userName]="name"><app-child>
